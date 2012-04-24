@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+	<name>PLG_CONTENT_SHOWTAGS</name>
+	<author>Roberto Segura</author>
+	<creationDate>April 2012</creationDate>
+	<copyright>Copyright (C) 2012 Roberto Segura. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>roberto@phproberto.com</authorEmail>
+	<authorUrl>www.phproberto.com</authorUrl>
+	<version>0.1</version>
+	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
+	<files>
+		<folder>css</folder>
+		<folder>language</folder>
+		<filename plugin="showtags">showtags.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<!-- en-GB -->
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_showtags.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_showtags.sys.ini</language>
+		<!-- es-ES -->
+		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.ini</language>
+		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.sys.ini</language>
+	</languages>
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="position" type="list" default="before" label="PLG_CONTENT_SHOWTAGS_POSITION_LABEL" description="PLG_CONTENT_SHOWTAGS_POSITION_DESC">
+					<option value="before">PLG_CONTENT_SHOWTAGS_BEFORE</option>
+					<option value="after">PLG_CONTENT_SHOWTAGS_AFTER</option>
+					<option value="both">PLG_CONTENT_SHOWTAGS_BOTH</option>
+			</field>
+			<field name="container" type="list" default="div" label="PLG_CONTENT_SHOWTAGS_CONTAINER_LABEL" description="PLG_CONTENT_SHOWTAGS_CONTAINER_DESC">
+					<option value="div">PLG_CONTENT_SHOWTAGS_CONTAINER_DIV</option>
+					<option value="nav">PLG_CONTENT_SHOWTAGS_CONTAINER_NAV</option>
+			</field>
+			<field name="format" type="list" default="before" label="PLG_CONTENT_SHOWTAGS_FORMAT_LABEL" description="PLG_CONTENT_SHOWTAGS_FORMAT_DESC">
+					<option value="ulli">PLG_CONTENT_SHOWTAGS_UNORDERED_LIST</option>
+					<option value="wordlist">PLG_CONTENT_SHOWTAGS_WORDLIST</option>
+			</field>
+			<field name="wordlist_separator" type="text" label="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_LABEL" description="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_DESC" default=","/>
+			<field name="css_class" type="text" label="PLG_CONTENT_SHOWTAGS_CSSCLASS_LABEL" description="PLG_CONTENT_SHOWTAGS_CSSCLASS_DESC" default=""/>
+		</fieldset>
+	</fields>
+	</config>
+</extension>

@@ -1,0 +1,23 @@
+.content-showtags {
+	color: #666666; 
+	margin: 5px 0;
+	border-top: 1px dotted #e0e0e0;
+	border-bottom: 1px dotted #e0e0e0;
+}
+.content-showtags ul li {
+	list-style: none;
+	display: inline;
+}
+.content-showtags a {
+	background-color: #2285EB;
+	color: #ffffff;
+	padding: 3px 6px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+}
+.content-showtags a:hover {
+	background-color: #ff3300;
+	color: #ffffff;
+}
