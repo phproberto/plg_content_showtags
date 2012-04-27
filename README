@@ -1,0 +1,37 @@
+###########################
+PLG_CONTENT_SHOWTAGS
+###########################
+
+---------------------------
+1.- Description
+---------------------------
+Showtags is a Joomla content plugin to show article tags in category or article views. Tags are based on article meta-keywords.
+
+---------------------------
+2.- Features
+---------------------------
+* Show tags before and/or after articles
+* Parent tag selectable div/nav 
+* Format tags in unordered list / wordlist
+* Show tags in category and/or article view
+* You can add a custom CSS selector to customize it
+* Languages: English, Spanish (other languages are welcome :-) )
+
+---------------------------
+3.- Install / Configuration
+--------------------------- 
+- Clone the repository
+- Zip it and install as Package or install directly through "Install from Directory"
+- Go to Extensions > Plug-in manager and search a plugin called "Content - Showtags". Click it to enable / configure the plugin.
+
+---------------------------
+4.- Author & License
+---------------------------
+Showtags was developed by Roberto Segura and is licensed under GNU/GPL 2, http://www.gnu.org/licenses/gpl-2.0.html
+
+---------------------------
+5.- Contact
+---------------------------
+You can find me by email:
+Email: roberto(at)phproberto.com
+Twitter: http://twitter.com/phproberto 
