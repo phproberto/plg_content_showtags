@@ -40,7 +40,7 @@ class plgContentShowtags extends JPlugin {
     private $_option = null;
     private $_view = null;
     
-    //
+    // array of tags
     private $_tags = array();
     
     function __construct( &$subject ){
@@ -81,7 +81,7 @@ class plgContentShowtags extends JPlugin {
         if ($context != 'com_content.article' || !$this->_validateView() || !isset($article->metakey) || empty($article->metakey)) {
             return;
         }
-        
+      
         $this->_tags = explode(',',$article->metakey);
         $parsedTags = $this->_parseTags();
         
@@ -115,8 +115,17 @@ class plgContentShowtags extends JPlugin {
 	
 	private function _validateView() {
 	    
-	    if ($this->_option == 'com_content' && ($this->_view != 'article' || $this->_view != 'category')) {
-	        return true;
+	    if ($this->_option == 'com_content') {
+
+            // article view enabled?
+            if ($this->_view == 'article' && $this->_params->get('enable_article',0)) {
+                return true;
+            }
+
+            // category view enabled?
+            if ($this->_view == 'category' && $this->_params->get('enable_category',0)) {
+                return true;
+            }
 	    }
 	    return false;
 	}

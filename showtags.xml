@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>0.1</version>
+	<version>1</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
@@ -41,6 +41,22 @@
 			</field>
 			<field name="wordlist_separator" type="text" label="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_LABEL" description="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_DESC" default=","/>
 			<field name="css_class" type="text" label="PLG_CONTENT_SHOWTAGS_CSSCLASS_LABEL" description="PLG_CONTENT_SHOWTAGS_CSSCLASS_DESC" default=""/>
+			<field name="enable_article" type="radio"
+				default="1"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLE_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLE_LABEL"
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="enable_category" type="radio"
+				default="1"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_IN_CATEGORY_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_CATEGORY_LABEL"
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
 		</fieldset>
 	</fields>
 	</config>
