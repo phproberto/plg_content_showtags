@@ -135,6 +135,7 @@ class plgContentShowtags extends JPlugin {
 	    $parentContainer = $this->_params->get('container','div');
 	    $customCss = $this->_params->get('css_class',null);
 	    $parseMode = $this->_params->get('format','ulli');
+        $wordlistSeparator = $this->_params->get('wordlist_separator',',');
 	    
 	    if ($this->_tags) {
 	        $html .= "\n<".$parentContainer." class=\"content-showtags ".$customCss."\">";
@@ -151,7 +152,7 @@ class plgContentShowtags extends JPlugin {
 	                $html .= "\n\t\t<li>".$tag."</li>";
 	            } else {
 	                if ($i) {
-	                    $html .= ', ';
+	                    $html .= $wordlistSeparator . ' ';
 	                }
 	                $html .= $tag;
 	            }
