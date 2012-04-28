@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
@@ -56,6 +56,9 @@
 			>
 				<option value="1">JYES</option>
 				<option value="0">JNO</option>
+			</field>
+			<field name="menulink" type="menuitem" default="" label="PLG_CONTENT_SHOWTAGS_MENULINK_LABEL" description="PLG_CONTENT_SHOWTAGS_MENULINK_DESC" >
+				<option	value="">JDEFAULT</option>
 			</field>
 		</fieldset>
 	</fields>

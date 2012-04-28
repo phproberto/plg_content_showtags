@@ -131,11 +131,16 @@ class plgContentShowtags extends JPlugin {
 	}
 	
 	private function _parseTags() {
+
+        // default value
 	    $html = '';
+
+        // parse parameters
 	    $parentContainer = $this->_params->get('container','div');
 	    $customCss = $this->_params->get('css_class',null);
 	    $parseMode = $this->_params->get('format','ulli');
         $wordlistSeparator = $this->_params->get('wordlist_separator',',');
+        $menulink= $this->_params->get('menulink',null);
 	    
 	    if ($this->_tags) {
 	        $html .= "\n<".$parentContainer." class=\"content-showtags ".$customCss."\">";
@@ -145,8 +150,17 @@ class plgContentShowtags extends JPlugin {
 	        $html .= '<span>'.JText::_('PLG_CONTENT_SHOWTAGS_TITLE').' </span>';
 	        $i = 0;
 	        foreach ($this->_tags as $tag) {
+                
+                // clear tag empty spaces
 	            $tag = trim($tag);
-	            $url = 'index.php?option=com_search&searchword='. $tag . '&ordering=&searchphrase=all';
+
+                // build the link
+	            $url = 'index.php?option=com_search&amp;searchword='. $tag . '&amp;ordering=&amp;searchphrase=all';
+                // force Itemid?
+                if ($menulink) {
+                    $url .= "&amp;Itemid=".$menulink;
+                }
+                $url = JRoute::_($url);
 	            $tag = '<a href="'.$url.'" >'.$tag.'</a>';
 	            if ($parseMode == 'ulli') {
 	                $html .= "\n\t\t<li>".$tag."</li>";
