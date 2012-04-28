@@ -36,9 +36,10 @@ class plgContentShowtags extends JPlugin {
     private $_urlPluginJs = null;
     private $_urlPluginCss = null;
     
-    // option & view
+    // url parameters 
     private $_option = null;
     private $_view = null;
+    private $_id = null;
     
     // array of tags
     private $_tags = array();
@@ -76,6 +77,9 @@ class plgContentShowtags extends JPlugin {
         // get url parameters
         $this->_option = $jinput->get('option',null);
         $this->_view = $jinput->get('view',null);
+        $this->_id = $jinput->get('id',null);
+
+        $this->_article = $article;
 
         // validate view
         if ($context != 'com_content.article' || !$this->_validateView() || !isset($article->metakey) || empty($article->metakey)) {
@@ -117,14 +121,28 @@ class plgContentShowtags extends JPlugin {
 	    
 	    if ($this->_option == 'com_content') {
 
+            // get active categories
+            $activeCategories = $this->_params->get('active_categories','');  
+
             // article view enabled?
-            if ($this->_view == 'article' && $this->_params->get('enable_article',0)) {
-                return true;
+            if ($this->_view == 'article' && $this->_id && $this->_params->get('enable_article',0)) {
+
+                // category filter
+                if ($activeCategories && $this->_article
+                    && ( in_array('-1', $activeCategories) || in_array($this->_article->catid, $activeCategories) )) {
+                    return true;
+                }
             }
 
             // category view enabled?
-            if ($this->_view == 'category' && $this->_params->get('enable_category',0)) {
-                return true;
+            if ($this->_view == 'category' && $this->_id && $this->_params->get('enable_category',0)) {
+
+                // category filter
+                if ($activeCategories 
+                    && ( in_array('-1', $activeCategories) || in_array($this->_id, $activeCategories) )) {
+                    return true;
+                }
+
             }
 	    }
 	    return false;

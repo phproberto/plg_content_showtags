@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>1.1</version>
+	<version>1.2</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
@@ -56,6 +56,13 @@
 			>
 				<option value="1">JYES</option>
 				<option value="0">JNO</option>
+			</field>
+			<field name="active_categories" type="sql" class="inputbox" default="-1" 
+			query="SELECT id , title FROM #__categories WHERE extension ='com_content'" key_field='id' value_field='title' 
+			multiple="multiple" 
+			label="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_LABEL" 
+			description="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_DESC" >
+				 <option value="-1">PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_ALL</option>
 			</field>
 			<field name="menulink" type="menuitem" default="" label="PLG_CONTENT_SHOWTAGS_MENULINK_LABEL" description="PLG_CONTENT_SHOWTAGS_MENULINK_DESC" >
 				<option	value="">JDEFAULT</option>
