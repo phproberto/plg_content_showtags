@@ -66,7 +66,7 @@ class plgContentShowtags extends JPlugin {
      * @param object $params
      * @param integer $limitstart
      */
-    public function onContentBeforeDisplay($context, &$article, &$params, $limitstart) {
+    public function onContentBeforeDisplay($context, &$article, &$params, $limitstart = 0 ) {
         
         // required objects
         $app = JFactory::getApplication();
