@@ -36,7 +36,7 @@ class plgContentShowtags extends JPlugin {
     private $_urlPluginJs = null;
     private $_urlPluginCss = null;
     
-    // url parameters 
+    // url parameters
     private $_option = null;
     private $_view = null;
     private $_id = null;
@@ -91,13 +91,17 @@ class plgContentShowtags extends JPlugin {
         
         $position = $this->_params->get('position', 'before');
         $field = ($this->_view == 'category') ? 'introtext' : 'text';
-        
+
         switch ($position) {
             case 'before':
                 $article->{$field} = $parsedTags . $article->{$field};
                 break;
             case 'after':
                 $article->{$field} .= $parsedTags;
+                break;
+            // create a new article property called showtags with the parsed tags
+            case 'property':
+                $article->showtags = $parsedTags;
                 break;
             default:
                 $article->{$field} = $parsedTags . $article->{$field} . $parsedTags;
@@ -122,7 +126,7 @@ class plgContentShowtags extends JPlugin {
 	    if ($this->_option == 'com_content') {
 
             // get active categories
-            $activeCategories = $this->_params->get('active_categories','');  
+            $activeCategories = $this->_params->get('active_categories','');
 
             // article view enabled?
             if ($this->_view == 'article' && $this->_id && $this->_params->get('enable_article',0)) {
@@ -138,7 +142,7 @@ class plgContentShowtags extends JPlugin {
             if ($this->_view == 'category' && $this->_id && $this->_params->get('enable_category',0)) {
 
                 // category filter
-                if ($activeCategories 
+                if ($activeCategories
                     && ( in_array('-1', $activeCategories) || in_array($this->_id, $activeCategories) )) {
                     return true;
                 }
@@ -159,6 +163,7 @@ class plgContentShowtags extends JPlugin {
 	    $parseMode = $this->_params->get('format','ulli');
         $wordlistSeparator = $this->_params->get('wordlist_separator',',');
         $menulink= $this->_params->get('menulink',null);
+        $taxonomyActive = $this->_params->get('taxonomy_enabled',0);
 	    
 	    if ($this->_tags) {
 	        $html .= "\n<".$parentContainer." class=\"content-showtags ".$customCss."\">";
@@ -171,14 +176,22 @@ class plgContentShowtags extends JPlugin {
                 
                 // clear tag empty spaces
 	            $tag = trim($tag);
-
-                // build the link
-	            $url = 'index.php?option=com_search&amp;searchword='. $tag . '&amp;ordering=&amp;searchphrase=all';
+	            
+                // generate the url
+                if ($taxonomyActive) {
+                    $url = 'index.php?option=com_taxonomy&tag=' . $tag;
+                } else {
+	                $url = 'index.php?option=com_search&searchword='. $tag . '&ordering=&searchphrase=all';
+                }
+                
                 // force Itemid?
                 if ($menulink) {
-                    $url .= "&amp;Itemid=".$menulink;
+                    $url .= "&Itemid=".$menulink;
                 }
-                $url = JRoute::_($url);
+                
+                // build the route
+                $url = JRoute::_(JFilterOutput::ampReplace($url));
+                
 	            $tag = '<a href="'.$url.'" >'.$tag.'</a>';
 	            if ($parseMode == 'ulli') {
 	                $html .= "\n\t\t<li>".$tag."</li>";
@@ -197,5 +210,6 @@ class plgContentShowtags extends JPlugin {
 	    }
 	    return $html;
 	}
+	
 }
 ?>
