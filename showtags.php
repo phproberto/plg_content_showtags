@@ -127,6 +127,9 @@ class plgContentShowtags extends JPlugin {
 
             // get active categories
             $activeCategories = $this->_params->get('active_categories','');
+            if (!is_array($activeCategories)) {
+                $activeCategories = array($activeCategories);
+            }
 
             // article view enabled?
             if ($this->_view == 'article' && $this->_id && $this->_params->get('enable_article',0)) {

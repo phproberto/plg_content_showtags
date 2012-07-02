@@ -37,8 +37,8 @@ Showtags was developed by Roberto Segura and is licensed under GNU/GPL 2, http:/
 6.- Contact
 ---------------------------
 You can find me at:  
-Email: roberto(at)phproberto.com  
-Twitter: http://twitter.com/phproberto  
+**Email**: roberto(at)phproberto.com  
+**Twitter**: http://twitter.com/phproberto  
 
 7.- Changelog
 ---------------------------
