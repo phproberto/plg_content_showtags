@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>1.3.1</version>
+	<version>1.3.2</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
@@ -22,6 +22,10 @@
 		<!-- es-ES -->
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.ini</language>
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.sys.ini</language>
+		<!-- de-DE -->
+		<language tag="es-ES">language/es-ES/de-DE.plg_content_showtags.ini</language>
+		<language tag="es-ES">language/es-ES/de-DE.plg_content_showtags.sys.ini</language>
+		
 	</languages>
 	<config>
 	<fields name="params">
