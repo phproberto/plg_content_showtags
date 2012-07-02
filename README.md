@@ -25,17 +25,22 @@ Showtags is a Joomla content plugin to show article tags in category or article 
 - Install it through Joomla Extension Manager 
 - Go to Extensions > Plug-in manager and search a plugin called "Content - Showtags". Click it to enable / configure the plugin.
 
-4.- Author & License
+4.- Sites using Showtags
+--------------------------- 
+[kunstgeschichte.adhocgrafx.de](http://www.kunstgeschichte.adhocgrafx.de/index.php/kunstgeschichte/stilrichtungen/75-pointilismus-allgemeine-grundlagen.html)  
+[joomskeleton.adhocgrafx.de](http://www.joomskeleton.adhocgrafx.de/index.php/configuration/module-styles.html)  
+
+5.- Author & License
 ---------------------------
 Showtags was developed by Roberto Segura and is licensed under GNU/GPL 2, http://www.gnu.org/licenses/gpl-2.0.html
 
-5.- Contact
+6.- Contact
 ---------------------------
 You can find me by email:
 Email: roberto(at)phproberto.com
 Twitter: http://twitter.com/phproberto 
 
-6.- Changelog
+7.- Changelog
 ---------------------------
 v.1.3.2 - Added German Language (Thanks to Johannes Hock | @adhocgraFX ! )  
 v.1.3.0 - Generate $article->showtags property & Aixeena Taxonomy compatible  

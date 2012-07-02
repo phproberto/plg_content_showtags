@@ -23,8 +23,8 @@
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.ini</language>
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.sys.ini</language>
 		<!-- de-DE -->
-		<language tag="es-ES">language/es-ES/de-DE.plg_content_showtags.ini</language>
-		<language tag="es-ES">language/es-ES/de-DE.plg_content_showtags.sys.ini</language>
+		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.ini</language>
+		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.sys.ini</language>
 		
 	</languages>
 	<config>
