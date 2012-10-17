@@ -2,12 +2,12 @@
 <extension version="2.5" type="plugin" group="content" method="upgrade">
 	<name>PLG_CONTENT_SHOWTAGS</name>
 	<author>Roberto Segura</author>
-	<creationDate>April 2012</creationDate>
+	<creationDate>October 2012</creationDate>
 	<copyright>Copyright (C) 2012 Roberto Segura. All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>1.3.2</version>
+	<version>1.3.3</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
@@ -25,60 +25,96 @@
 		<!-- de-DE -->
 		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.ini</language>
 		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.sys.ini</language>
-		
 	</languages>
 	<config>
 	<fields name="params">
 		<fieldset name="basic">
-			<field name="position" type="list" default="before" label="PLG_CONTENT_SHOWTAGS_POSITION_LABEL" description="PLG_CONTENT_SHOWTAGS_POSITION_DESC">
+			<field name="position"
+				type="list"
+				default="before"
+				label="PLG_CONTENT_SHOWTAGS_POSITION_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_POSITION_DESC"
+				>
 					<option value="before">PLG_CONTENT_SHOWTAGS_BEFORE</option>
 					<option value="after">PLG_CONTENT_SHOWTAGS_AFTER</option>
 					<option value="both">PLG_CONTENT_SHOWTAGS_BOTH</option>
 					<option value="property">PLG_CONTENT_SHOWTAGS_GEN_PROPERTY</option>
 			</field>
-			<field name="container" type="list" default="div" label="PLG_CONTENT_SHOWTAGS_CONTAINER_LABEL" description="PLG_CONTENT_SHOWTAGS_CONTAINER_DESC">
+			<field name="container"
+				type="list"
+				default="div"
+				label="PLG_CONTENT_SHOWTAGS_CONTAINER_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_CONTAINER_DESC"
+				>
 					<option value="div">PLG_CONTENT_SHOWTAGS_CONTAINER_DIV</option>
 					<option value="nav">PLG_CONTENT_SHOWTAGS_CONTAINER_NAV</option>
 			</field>
-			<field name="format" type="list" default="before" label="PLG_CONTENT_SHOWTAGS_FORMAT_LABEL" description="PLG_CONTENT_SHOWTAGS_FORMAT_DESC">
+			<field name="format"
+				type="list"
+				default="before"
+				label="PLG_CONTENT_SHOWTAGS_FORMAT_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_FORMAT_DESC"
+				>
 					<option value="ulli">PLG_CONTENT_SHOWTAGS_UNORDERED_LIST</option>
 					<option value="wordlist">PLG_CONTENT_SHOWTAGS_WORDLIST</option>
 			</field>
-			<field name="wordlist_separator" type="text" label="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_LABEL" description="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_DESC" default=","/>
-			<field name="css_class" type="text" label="PLG_CONTENT_SHOWTAGS_CSSCLASS_LABEL" description="PLG_CONTENT_SHOWTAGS_CSSCLASS_DESC" default=""/>
-			<field name="enable_article" type="radio"
+			<field name="wordlist_separator"
+				type="text"
+				label="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_WORDLIST_SEPARATOR_DESC"
+				default=","/>
+			<field name="css_class"
+				type="text"
+				label="PLG_CONTENT_SHOWTAGS_CSSCLASS_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_CSSCLASS_DESC"
+				default=""/>
+			<field name="enable_article"
+				type="radio"
 				default="1"
 				description="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLE_DESC"
 				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLE_LABEL"
-			>
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
 			</field>
-			<field name="enable_category" type="radio"
+			<field name="enable_category"
+				type="radio"
 				default="1"
 				description="PLG_CONTENT_SHOWTAGS_SHOW_IN_CATEGORY_DESC"
 				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_CATEGORY_LABEL"
-			>
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
 			</field>
-			<field name="active_categories" type="sql" class="inputbox" default="-1" 
-			query="SELECT id , title FROM #__categories WHERE extension ='com_content'" key_field='id' value_field='title' 
-			multiple="multiple" 
-			label="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_LABEL" 
-			description="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_DESC" >
-				 <option value="-1">PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_ALL</option>
+			<field name="active_categories"
+				type="sql"
+				class="inputbox"
+				default="-1"
+				query="SELECT id , title FROM #__categories WHERE extension ='com_content'"
+				key_field='id'
+				value_field='title'
+				multiple="multiple"
+				label="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_DESC"
+				>
+					<option value="-1">PLG_CONTENT_SHOWTAGS_CATEGORY_FILTER_ALL</option>
 			</field>
-			<field name="menulink" type="menuitem" default="" label="PLG_CONTENT_SHOWTAGS_MENULINK_LABEL" description="PLG_CONTENT_SHOWTAGS_MENULINK_DESC" >
-				<option	value="">JDEFAULT</option>
+			<field name="menulink"
+				type="menuitem"
+				default=""
+				label="PLG_CONTENT_SHOWTAGS_MENULINK_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_MENULINK_DESC"
+				>
+					<option	value="">JDEFAULT</option>
 			</field>
-			<field name="taxonomy_enabled" type="radio"
+			<field name="taxonomy_enabled"
+				type="radio"
 				default="1"
 				description="PLG_CONTENT_SHOWTAGS_TAXONOMY_DESC"
 				label="PLG_CONTENT_SHOWTAGS_TAXONOMY_LABEL"
-			>
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
 			</field>
 		</fieldset>
 	</fields>
