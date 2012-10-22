@@ -23,8 +23,8 @@
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.ini</language>
 		<language tag="es-ES">language/es-ES/es-ES.plg_content_showtags.sys.ini</language>
 		<!-- de-DE -->
-		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.ini</language>
-		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.sys.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.plg_content_showtags.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.plg_content_showtags.sys.ini</language>
 		<!-- nl-NL -->
 		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.ini</language>
 		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.sys.ini</language>
