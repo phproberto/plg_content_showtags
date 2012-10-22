@@ -48,6 +48,7 @@ This extension is licensed under GNU/GPL 2, http://www.gnu.org/licenses/gpl-2.0.
 
 7.- Changelog
 ---------------------------
+v.1.3.4 - Added Dutch Language. Thanks to [Ruud van Zuidam](http://www.websiteconcepts.nl/)!
 v.1.3.3 - Joomla! 3.0 compatible and 100% Joomla! standard code  
 v.1.3.2 - Added German Language (Thanks to Johannes Hock | @adhocgraFX ! )  
 v.1.3.0 - Generate $article->showtags property & Aixeena Taxonomy compatible  

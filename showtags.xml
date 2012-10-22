@@ -25,6 +25,9 @@
 		<!-- de-DE -->
 		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.ini</language>
 		<language tag="es-ES">language/de-DE/de-DE.plg_content_showtags.sys.ini</language>
+		<!-- nl-NL -->
+		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.ini</language>
+		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.sys.ini</language>
 	</languages>
 	<config>
 	<fields name="params">
