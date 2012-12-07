@@ -41,13 +41,6 @@ class PlgContentShowtags extends JPlugin
 
 	private $_urlPluginCss = null;
 
-	// URL parameters
-	private $_option = null;
-
-	private $_view   = null;
-
-	private $_id     = null;
-
 	// Array of tags
 	private $_tags = array();
 
@@ -85,14 +78,10 @@ class PlgContentShowtags extends JPlugin
 	public function onContentBeforeDisplay($context, &$article, &$params, $limitstart = 0 )
 	{
 		// Required objects
-		$app      = JFactory::getApplication();
 		$document = JFactory::getDocument();
-		$jinput   = $app->input;
+		$jinput   = JFactory::getApplication()->input;
 
-		// Get url parameters
-		$this->_option = $jinput->get('option', null);
-		$this->_view   = $jinput->get('view', null);
-		$this->_id     = $jinput->get('id', null);
+		$view   = $jinput->get('view', null);
 
 		$this->_article = $article;
 
@@ -106,7 +95,7 @@ class PlgContentShowtags extends JPlugin
 		$this->_tags = explode(',', $article->metakey);
 		$parsedTags  = $this->_parseTags();
 		$position    = $this->_params->get('position', 'before');
-		$field       = ($this->_view == 'category') ? 'introtext' : 'text';
+		$field       = ($view == 'category' || $view == 'featured') ? 'introtext' : 'text';
 
 		switch ($position)
 		{
@@ -158,8 +147,14 @@ class PlgContentShowtags extends JPlugin
 	 */
 	private function _validateView()
 	{
+		$jinput   = JFactory::getApplication()->input;
 
-		if ($this->_option == 'com_content')
+		// Get url parameters
+		$option = $jinput->get('option', null);
+		$view   = $jinput->get('view', null);
+		$id     = $jinput->get('id', null);
+
+		if ($option == 'com_content')
 		{
 			// Get active categories
 			$activeCategories = $this->_params->get('active_categories', '');
@@ -169,7 +164,7 @@ class PlgContentShowtags extends JPlugin
 			}
 
 			// Article view enabled?
-			if ($this->_view == 'article' && $this->_id && $this->_params->get('enable_article', 0))
+			if ($view == 'article' && $id && $this->_params->get('enable_article', 1))
 			{
 				// Category filter
 				if ($activeCategories && $this->_article
@@ -180,7 +175,7 @@ class PlgContentShowtags extends JPlugin
 			}
 
 			// Category view enabled?
-			if ($this->_view == 'category' && $this->_id && $this->_params->get('enable_category', 0))
+			if ($view == 'category' && $id && $this->_params->get('enable_category', 1))
 			{
 				// Category filter
 				if ($activeCategories
@@ -189,6 +184,13 @@ class PlgContentShowtags extends JPlugin
 					return true;
 				}
 
+			}
+
+			// Featured view enabled ?
+			if ($view == 'featured' && $this->_params->get('enable_featured', 1) 
+				&& ( in_array('-1', $activeCategories) || in_array($this->_article->catid, $activeCategories) ))
+			{
+				return true;
 			}
 		}
 		return false;
