@@ -7,11 +7,12 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>roberto@phproberto.com</authorEmail>
 	<authorUrl>www.phproberto.com</authorUrl>
-	<version>1.3.5</version>
+	<version>1.3.6</version>
 	<description>PLG_CONTENT_SHOWTAGS_XML_DESC</description>
 	<files>
 		<folder>css</folder>
 		<folder>language</folder>
+		<folder>tmpl</folder>
 		<filename plugin="showtags">showtags.php</filename>
 		<filename>index.html</filename>
 	</files>

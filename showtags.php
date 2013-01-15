@@ -187,7 +187,7 @@ class PlgContentShowtags extends JPlugin
 			}
 
 			// Featured view enabled ?
-			if ($view == 'featured' && $this->_params->get('enable_featured', 1) 
+			if ($view == 'featured' && $this->_params->get('enable_featured', 1)
 				&& ( in_array('-1', $activeCategories) || in_array($this->_article->catid, $activeCategories) ))
 			{
 				return true;
@@ -214,61 +214,56 @@ class PlgContentShowtags extends JPlugin
 		$menulink          = $this->_params->get('menulink', null);
 		$taxonomyActive    = $this->_params->get('taxonomy_enabled', 0);
 
-		if ($this->_tags)
-		{
-			$html .= "\n<" . $parentContainer . " class=\"content-showtags " . $customCss . "\">";
-			if ($parseMode == 'ulli')
-			{
-				$html .= "\n\t<ul>";
-			}
-			$html .= '<span>' . JText::_('PLG_CONTENT_SHOWTAGS_TITLE') . ' </span>';
-			$i = 0;
-			foreach ($this->_tags as $tag)
-			{
-				// Clear tag empty spaces
-				$tag = trim($tag);
+		// Render the overridable template
+		ob_start();
+		require self::getLayoutPath($this->_plugin->type, $this->_plugin->name, $layout = 'default_' . $parseMode);
+		$html = ob_get_contents();
+		ob_end_clean();
 
-				// Generate the url
-				if ($taxonomyActive)
-				{
-					$url = 'index.php?option=com_taxonomy&tag=' . $tag;
-				}
-				else
-				{
-					$url = 'index.php?option=com_search&searchword=' . $tag . '&ordering=&searchphrase=all';
-				}
-
-				// Force Itemid?
-				if ($menulink)
-				{
-					$url .= "&Itemid=" . $menulink;
-				}
-
-				// Build the route
-				$url = JRoute::_(JFilterOutput::ampReplace($url));
-
-				$tag = '<a href="' . $url . '" >' . $tag . '</a>';
-				if ($parseMode == 'ulli')
-				{
-					$html .= "\n\t\t<li>" . $tag . "</li>";
-				}
-				else
-				{
-					if ($i)
-					{
-						$html .= $wordlistSeparator . ' ';
-					}
-					$html .= $tag;
-				}
-				$i++;
-			}
-			if ($parseMode)
-			{
-				$html .= "\n\t</ul>";
-			}
-			$html .= "\n</" . $parentContainer . ">\n";
-		}
 		return $html;
 	}
 
+	/**
+	 * Function to get the path to a layout checking overrides.
+	 * It's exactly as it's used in the Joomla! Platform 12.2 to easily replace it when available
+	 *
+	 * @param   string  $type    Plugin type (system, content, etc.)
+	 * @param   string  $name    Name of the plugin
+	 * @param   string  $layout  The layout name
+	 *
+	 * @return string  Path where we have to use to call the layout
+	 */
+	public static function getLayoutPath($type, $name, $layout = 'default')
+	{
+		$template = JFactory::getApplication()->getTemplate();
+		$defaultLayout = $layout;
+
+		if (strpos($layout, ':') !== false)
+		{
+			// Get the template and file name from the string
+			$temp = explode(':', $layout);
+			$template = ($temp[0] == '_') ? $template : $temp[0];
+			$layout = $temp[1];
+			$defaultLayout = ($temp[1]) ? $temp[1] : 'default';
+		}
+
+		// Build the template and base path for the layout
+		$tPath = JPATH_THEMES . '/' . $template . '/html/plg_' . $type . '_' . $name . '/' . $layout . '.php';
+		$bPath = JPATH_BASE . '/plugins/' . $type . '/' . $name . '/tmpl/' . $defaultLayout . '.php';
+		$dPath = JPATH_BASE . '/plugins/' . $type . '/' . $name . '/tmpl/' . 'default.php';
+
+		// If the template has a layout override use it
+		if (file_exists($tPath))
+		{
+			return $tPath;
+		}
+		elseif (file_exists($bPath))
+		{
+			return $bPath;
+		}
+		else
+		{
+			return $dPath;
+		}
+	}
 }
