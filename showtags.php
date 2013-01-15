@@ -78,7 +78,6 @@ class PlgContentShowtags extends JPlugin
 	public function onContentBeforeDisplay($context, &$article, &$params, $limitstart = 0 )
 	{
 		// Required objects
-		$document = JFactory::getDocument();
 		$jinput   = JFactory::getApplication()->input;
 
 		$view   = $jinput->get('view', null);
@@ -116,7 +115,9 @@ class PlgContentShowtags extends JPlugin
 				$article->{$field} = $parsedTags . $article->{$field} . $parsedTags;
 			break;
 		}
-		$document->addStyleSheet($this->_urlPluginCss . '/showtags.css');
+
+		// Load the overridable CSS
+		JHtml::stylesheet('plg_content_showtags/showtags.css', false, true, false);
 	}
 
 	/**
