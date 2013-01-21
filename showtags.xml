@@ -125,7 +125,7 @@
 			</field>
 			<field name="taxonomy_enabled"
 				type="radio"
-				default="1"
+				default="0"
 				description="PLG_CONTENT_SHOWTAGS_TAXONOMY_DESC"
 				label="PLG_CONTENT_SHOWTAGS_TAXONOMY_LABEL"
 				>
