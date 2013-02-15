@@ -45,13 +45,23 @@ class PlgContentShowtags extends JPlugin
 	private $_tags = array();
 
 	/**
+	 * Valid context where the plugin can be triggered
+	 *
+	 * @var  array
+	 */
+	private $_validContexts = array(
+		'com_content.article',
+		'com_content.category',
+		'com_content.featured'
+	);
+
+	/**
 	* Constructor
 	*
 	* @param   mixed  &$subject  Subject
 	*/
 	function __construct( &$subject )
 	{
-
 		parent::__construct($subject);
 
 		// Load plugin parameters
@@ -85,7 +95,7 @@ class PlgContentShowtags extends JPlugin
 		$this->_article = $article;
 
 		// Validate view
-		if ($context != 'com_content.article' || !$this->_validateView()
+		if (!$this->_validateContext($context) || !$this->_validateView()
 			|| !isset($article->metakey) || empty($article->metakey))
 		{
 			return;
@@ -127,7 +137,6 @@ class PlgContentShowtags extends JPlugin
 	 */
 	private function _initFolders()
 	{
-
 		// Paths
 		$this->_pathPlugin = JPATH_PLUGINS . DIRECTORY_SEPARATOR . "content" . DIRECTORY_SEPARATOR . self::PLUGIN_NAME;
 
@@ -135,6 +144,18 @@ class PlgContentShowtags extends JPlugin
 		$this->_urlPlugin    = JURI::root() . "plugins/content/showtags";
 		$this->_urlPluginJs  = $this->_urlPlugin . "/js";
 		$this->_urlPluginCss = $this->_urlPlugin . "/css";
+	}
+
+	/**
+	 * Check if the plugin has to be triggered in the current context
+	 *
+	 * @param   string  $context  Plugin context
+	 *
+	 * @return  boolean
+	 */
+	private function _validateContext($context)
+	{
+		return in_array($context, $this->_validContexts);
 	}
 
 	/**
@@ -159,6 +180,8 @@ class PlgContentShowtags extends JPlugin
 		{
 			// Get active categories
 			$activeCategories = $this->_params->get('active_categories', '');
+
+			// Force activeCategories format
 			if (!is_array($activeCategories))
 			{
 				$activeCategories = array($activeCategories);
