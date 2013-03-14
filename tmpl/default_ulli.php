@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 ?>
 <?php if($this->_tags): ?>
-	<<?php echo $parentContainer; ?> class="content-showtags <?php echo $customCss; ?>">
+	<<?php echo $parentContainer; ?> class="<?php echo $customCss; ?>">
 		<ul>
 			<span><?php echo JText::_('PLG_CONTENT_SHOWTAGS_TITLE'); ?></span>
 			<?php foreach ($this->_tags as $tag): ?>

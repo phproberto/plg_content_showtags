@@ -74,7 +74,7 @@
 				type="text"
 				label="PLG_CONTENT_SHOWTAGS_CSSCLASS_LABEL"
 				description="PLG_CONTENT_SHOWTAGS_CSSCLASS_DESC"
-				default=""/>
+				default="content-showtags"/>
 			<field name="enable_article"
 				type="radio"
 				default="1"
