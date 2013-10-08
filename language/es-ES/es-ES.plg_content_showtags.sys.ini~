@@ -1,3 +1,4 @@
 PLG_CONTENT_SHOWTAGS="Contenido - Mostrar etiquetas (Showtags)"
 PLG_CONTENT_SHOWTAGS_XML_DESC="<p>Mostrar las etiquetas de un artículo (keywords) en las vistas de categoría y artículo</p><p>Desarrollado por: <a href="http://www.phproberto.com">Roberto Segura</a></p>"
-
+PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEJTAGS_LABEL="Mostrar JTags"
+PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEJTAGS_DESC="Muestra los tags de joomla (a partir de la 3.1)"

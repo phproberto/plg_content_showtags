@@ -22,7 +22,6 @@ JLoader::import('joomla.plugin.plugin');
  */
 class PlgContentShowtags extends JPlugin
 {
-
 	const PLUGIN_NAME = 'showtags';
 
 	private $_params = null;
@@ -101,7 +100,24 @@ class PlgContentShowtags extends JPlugin
 			return;
 		}
 
-		$this->_tags = explode(',', $article->metakey);
+		// Get MetaTags
+		if ($this->_params->get('enable_metatags', '1') == 1)
+		{
+			$this->_tags = explode(',', $article->metakey);
+		}
+
+		// Get JTags
+		if (property_exists($article, 'tags'))
+		{
+			if ($this->_params->get('enable_jtags', '1') == 1)
+			{
+				foreach ($article->tags->itemTags as &$jtag)
+				{
+					$this->_tags[] = $jtag->title;
+				}
+			}
+		}
+
 		$parsedTags  = $this->_parseTags();
 		$position    = $this->_params->get('position', 'before');
 		$field       = ($view == 'category' || $view == 'featured') ? 'introtext' : 'text';
@@ -207,7 +223,6 @@ class PlgContentShowtags extends JPlugin
 				{
 					return true;
 				}
-
 			}
 
 			// Featured view enabled ?
@@ -217,6 +232,7 @@ class PlgContentShowtags extends JPlugin
 				return true;
 			}
 		}
+
 		return false;
 	}
 
