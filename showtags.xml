@@ -84,6 +84,24 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 			</field>
+			<field name="enable_metatags"
+				type="radio"
+				default="1"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLEMETATAGS_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEMETATAGS_LABEL"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+			</field>
+			<field name="enable_jtags"
+				type="radio"
+				default="1"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLEJTAGS_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEJTAGS_LABEL"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+			</field>
 			<field name="enable_category"
 				type="radio"
 				default="1"
