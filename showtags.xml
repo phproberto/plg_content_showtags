@@ -90,8 +90,8 @@
 			<field name="enable_metatags"
 				type="radio"
 				default="1"
-				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLEMETATAGS_DESC"
-				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEMETATAGS_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLE_METATAGS_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLE_METATAGS_LABEL"
 				>
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
@@ -99,8 +99,8 @@
 			<field name="enable_jtags"
 				type="radio"
 				default="1"
-				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLEJTAGS_DESC"
-				label="PLG_CONTENT_SHOWTAGS_SHOW_IN_ARTICLEJTAGS_LABEL"
+				description="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLE_JTAGS_DESC"
+				label="PLG_CONTENT_SHOWTAGS_SHOW_ARTICLE_JTAGS_LABEL"
 				>
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
