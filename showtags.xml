@@ -32,6 +32,9 @@
 		<!-- nl-NL -->
 		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.ini</language>
 		<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_showtags.sys.ini</language>
+		<!-- it-IT -->
+		<language tag="it-IT">language/it-IT/it-IT.plg_content_showtags.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.plg_content_showtags.sys.ini</language>
 	</languages>
 	<config>
 	<fields name="params">
